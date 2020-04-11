@@ -22,16 +22,17 @@ A video player with built in file transfer and chat - or that's the idea
 ## More Overview
 
 ConnectorClass
-	- GetEndpoint
-		- STUNs example
-	- ConnectNeighbor (Endpoint)
-		- Using passed Endpoint, connect to Endpoint
- 		- return connection
-	- SendMessage (Message)
-		- Serialize message
-		- ForEach Neighbor
-			- Send message			
-	- ReceiveMessage
-		- deserialize message
-		- return
+
+- GetEndpoint
+  - STUNs example
+- ConnectNeighbor (Endpoint)
+  - Using passed Endpoint, connect to Endpoint
+  - return connection
+- SendMessage (Message)
+  - Serialize message
+  - ForEach Neighbor
+    - Send message			
+- ReceiveMessage
+  - deserialize message
+  - return
 		
