@@ -20,8 +20,9 @@ namespace VideoSync
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            webBrowser1.DocumentText = "<b>Hello</b> world";
+            webBrowser1.DocumentText += "<body style='background-color:black;color:white'><b>Hello</b> world</body>";
         }
+
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -39,6 +40,11 @@ namespace VideoSync
         }
 
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripSeparator1_Click(object sender, EventArgs e)
         {
 
         }
