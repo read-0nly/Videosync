@@ -58,7 +58,7 @@ namespace VideoSync
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -77,13 +77,13 @@ namespace VideoSync
             this.tableLayoutPanel2.Controls.Add(this.toolStripContainer1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.webBrowser1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(647, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(547, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 386);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 386);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // toolStripContainer1
@@ -92,11 +92,11 @@ namespace VideoSync
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.textBox1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(194, 49);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(294, 49);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(3, 311);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(194, 72);
+            this.toolStripContainer1.Size = new System.Drawing.Size(294, 72);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -115,7 +115,7 @@ namespace VideoSync
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 49);
+            this.textBox1.Size = new System.Drawing.Size(294, 49);
             this.textBox1.TabIndex = 0;
             // 
             // toolStrip1
@@ -130,7 +130,7 @@ namespace VideoSync
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(59, 23);
+            this.toolStrip1.Size = new System.Drawing.Size(90, 23);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -160,6 +160,7 @@ namespace VideoSync
             this.connectToToolStripMenuItem.Name = "connectToToolStripMenuItem";
             this.connectToToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.connectToToolStripMenuItem.Text = "Connect To";
+            this.connectToToolStripMenuItem.Click += new System.EventHandler(this.connectToToolStripMenuItem_Click);
             // 
             // setChatIdentityToolStripMenuItem
             // 
@@ -208,7 +209,7 @@ namespace VideoSync
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
             // webBrowser1
@@ -217,7 +218,7 @@ namespace VideoSync
             this.webBrowser1.Location = new System.Drawing.Point(3, 3);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(194, 302);
+            this.webBrowser1.Size = new System.Drawing.Size(294, 302);
             this.webBrowser1.TabIndex = 1;
             // 
             // Form1
