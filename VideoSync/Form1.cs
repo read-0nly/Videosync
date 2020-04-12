@@ -13,6 +13,7 @@ namespace VideoSync
 {
     public partial class Form1 : Form
     {
+        ConnectionManager cm = new ConnectionManager();
         public Form1()
         {
             InitializeComponent();
@@ -20,8 +21,7 @@ namespace VideoSync
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ConnectionManager cm = new ConnectionManager();
-            webBrowser1.DocumentText += "<body style='background-color:black;color:white'><b>Hello, </b>" + cm.Endpoint.ToString() + "<br><hr><br></body>";
+            webBrowser1.DocumentText = "<body style='background-color:black;color:white'><b>Hello, </b>" + cm.Endpoint.ToString() + "<br><hr><br></body>";
             
         }
 
@@ -54,7 +54,8 @@ namespace VideoSync
         private void connectToToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open connection window, try to establish socket connection
-            String targetEndpoint = Interaction.InputBox("Enter endpoint (IP.IP.IP.IP:Port)", "Connect to endpoint", "0.0.0.0:00000", -1, -1);     
+            String targetEndpoint = Interaction.InputBox("Enter endpoint (IP.IP.IP.IP:Port)", "Connect to endpoint", "0.0.0.0:00000", -1, -1);
+            cm.sendString("FISHFISHFISHFISHFISH", targetEndpoint);
             
         }
 
@@ -65,7 +66,12 @@ namespace VideoSync
 
         private void receiveModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            webBrowser1.DocumentText = "<body style='background-color:black;color:white'>"+Encoding.ASCII.GetString(cm.receiveBytes());
+        }
 
+        private void getEndpointToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            webBrowser1.DocumentText = "<body style='background-color:black;color:white'><b>Hello, </b>" + cm.Endpoint.ToString() + "<br><hr><br></body>";
         }
 
     }

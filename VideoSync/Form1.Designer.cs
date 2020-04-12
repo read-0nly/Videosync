@@ -156,6 +156,7 @@ namespace VideoSync
             this.getEndpointToolStripMenuItem.Name = "getEndpointToolStripMenuItem";
             this.getEndpointToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.getEndpointToolStripMenuItem.Text = "Get Endpoint";
+            this.getEndpointToolStripMenuItem.Click += new System.EventHandler(this.getEndpointToolStripMenuItem_Click);
             // 
             // connectToToolStripMenuItem
             // 
