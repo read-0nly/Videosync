@@ -46,6 +46,7 @@ namespace VideoSync
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.receiveModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -141,7 +142,8 @@ namespace VideoSync
             this.getEndpointToolStripMenuItem,
             this.connectToToolStripMenuItem,
             this.setChatIdentityToolStripMenuItem,
-            this.loadVideoToolStripMenuItem});
+            this.loadVideoToolStripMenuItem,
+            this.receiveModeToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -211,6 +213,7 @@ namespace VideoSync
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
             this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // webBrowser1
             // 
@@ -220,6 +223,13 @@ namespace VideoSync
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(294, 302);
             this.webBrowser1.TabIndex = 1;
+            // 
+            // receiveModeToolStripMenuItem
+            // 
+            this.receiveModeToolStripMenuItem.Name = "receiveModeToolStripMenuItem";
+            this.receiveModeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.receiveModeToolStripMenuItem.Text = "Receive Mode";
+            this.receiveModeToolStripMenuItem.Click += new System.EventHandler(this.receiveModeToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -262,6 +272,7 @@ namespace VideoSync
         private System.Windows.Forms.ToolStripMenuItem loadVideoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem receiveModeToolStripMenuItem;
     }
 }
 

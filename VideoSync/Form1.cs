@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace VideoSync
 {
@@ -20,8 +21,8 @@ namespace VideoSync
         private void Form1_Load(object sender, EventArgs e)
         {
             ConnectionManager cm = new ConnectionManager();
-            webBrowser1.DocumentText += "<body style='background-color:black;color:white'><b>Hello, </b>" + cm.Self.ToString() + "<br><hr><br>" + cm.pingPong()+"</body>";
-            cm.pingPong();
+            webBrowser1.DocumentText += "<body style='background-color:black;color:white'><b>Hello, </b>" + cm.Endpoint.ToString() + "<br><hr><br></body>";
+            
         }
 
 
@@ -53,7 +54,18 @@ namespace VideoSync
         private void connectToToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open connection window, try to establish socket connection
-                
+            String targetEndpoint = Interaction.InputBox("Enter endpoint (IP.IP.IP.IP:Port)", "Connect to endpoint", "0.0.0.0:00000", -1, -1);     
+            
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void receiveModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -12,12 +12,12 @@ namespace VideoSync
 {
     class ConnectionManager
     {
-        public IPEndPoint Self;
-        public int SelfPort;
+        public IPEndPoint Endpoint;
         UdpClient udpClient = new UdpClient(new IPEndPoint(IPAddress.Any, 0));
+
         public ConnectionManager()
         {
-            Self = getEndpoint();
+            Endpoint = getEndpoint();
         }
         IPEndPoint getEndpoint()
         {            
@@ -36,6 +36,55 @@ namespace VideoSync
 
             }
         }
+        public IPEndPoint stringToEndpoint(String ep)
+        {
+            return new IPEndPoint(IPAddress.Parse(ep.Split(':')[0]), int.Parse(ep.Split(':')[1]));
+        }
+
+        public bool sendString(string message, string ep)
+        {
+            IPEndPoint target = stringToEndpoint(ep);
+            byte[] byteMsg = ASCIIEncoding.ASCII.GetBytes(message);
+            return sendBytes(byteMsg, target);
+        }
+        public bool sendBytes(byte[] message, IPEndPoint ep)
+        {
+            try
+            {
+                // Sends a message to the host to which you have connected.
+
+                udpClient.Send(message, message.Length, ep);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("");
+                Console.WriteLine(e.ToString());
+                Console.WriteLine("");
+            }
+            return false;
+        }
+        public byte[] receiveBytes()
+        {
+            try
+            {
+                //IPEndPoint object will allow us to read datagrams sent from any source.
+                IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
+
+                // Blocks until a message returns on this socket from a remote host.
+                Byte[] receiveBytes = udpClient.Receive(ref RemoteIpEndPoint);
+                return receiveBytes;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine();
+                Console.WriteLine(e.ToString());
+                Console.WriteLine();
+                return null;
+            }
+
+        }
 
         public string pingPong()
         {
@@ -47,7 +96,7 @@ namespace VideoSync
 
                 // Sends a message to a different host using optional hostname and port parameters.
                 UdpClient udpClientB = new UdpClient(11002);
-                udpClientB.Send(sendBytes, sendBytes.Length, Self);
+                udpClientB.Send(sendBytes, sendBytes.Length, Endpoint);
 
                 //IPEndPoint object will allow us to read datagrams sent from any source.
                 IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);

@@ -36,6 +36,7 @@
     <Reference Include="Lumisoft.net">
       <HintPath>..\..\LumiSoft.Net\Lumisoft.net\bin\Debug\Lumisoft.net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
