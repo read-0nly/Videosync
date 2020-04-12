@@ -1,5 +1,4 @@
-﻿using WMPLib;
-
+﻿
 namespace VideoSync
 {
     partial class Form1
@@ -246,7 +245,6 @@ namespace VideoSync
         }
 
         #endregion
-        MediaPlayer.MediaPlayer mp = new MediaPlayer.MediaPlayer();
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.WebBrowser webBrowser1;
