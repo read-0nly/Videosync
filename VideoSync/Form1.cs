@@ -66,6 +66,8 @@ namespace VideoSync
 
         private void receiveModeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            String targetEndpoint = Interaction.InputBox("Enter endpoint (IP.IP.IP.IP:Port)", "Connect to endpoint", "0.0.0.0:00000", -1, -1);
+            cm.sendString("FISHFISHFISHFISHFISH", targetEndpoint);
             webBrowser1.DocumentText = "<body style='background-color:black;color:white'>"+Encoding.ASCII.GetString(cm.receiveBytes());
         }
 
