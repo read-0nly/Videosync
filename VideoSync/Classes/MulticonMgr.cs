@@ -104,6 +104,11 @@ namespace VideoSync
             return new IPEndPoint(IPAddress.Parse(ep.Split(':')[0]), int.Parse(ep.Split(':')[1]));
         }
 
+        public static string genTick()
+        {
+            return ((int)(DateTime.Now.Ticks / 100)).ToString("X8");
+        }
+
         public static bool sendString(string message, string ep, UdpClient udp)
         {
             IPEndPoint target = stringToEndpoint(ep);

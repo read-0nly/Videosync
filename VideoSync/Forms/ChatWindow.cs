@@ -48,6 +48,7 @@ namespace VideoSync
             thread = new Thread(new ThreadStart(listenLoop));
             setColors();
             listView1.Sorting = SortOrder.Ascending;
+            mediaPlayer.uiMode = "none";
         }
         public void pauseMedia()
         {
@@ -116,18 +117,10 @@ namespace VideoSync
 // SEND MESSAGE FUNCTION     
         private void sendChatMessage()
         {
-            /*
-             *
-             * 
-             * 
-             * MAKE THIS INTO A SPEPARATE FUNCTION SO YOU CAN DO TARGETED MESSAGES
-             * 
-             * 
-             */
             string msg = "" +
                 cm.self.hexCode + ":" +
                 WebUtility.UrlEncode(Properties.Settings.Default.Name) + ":" +
-                ((int)(DateTime.Now.Ticks / 100)).ToString("X8") + ":" +
+                MulticonMgr.genTick() + ":" +
                 Properties.Settings.Default.Color + ":" +
                 WebUtility.UrlEncode(chatMsgTb.Text + ";");
             foreach (ChatEndpoint n in cm.neighbours.Values)
@@ -136,6 +129,7 @@ namespace VideoSync
             }
             chatMsgTb.Text = "";
         }
+        //whisper function
         private void sendChatMessage(ChatEndpoint target)
         {
             string whisper = Microsoft.VisualBasic.Interaction.InputBox("Please enter your message", "Whisper");
@@ -144,7 +138,7 @@ namespace VideoSync
                 string msg = "" +
                     cm.self.hexCode + ":" +
                     WebUtility.UrlEncode(Properties.Settings.Default.Name) + ":" +
-                    ((int)(DateTime.Now.Ticks / 100)).ToString("X8") + ":" +
+                    MulticonMgr.genTick() + ":" +
                     Properties.Settings.Default.Color + ":" +
                     WebUtility.UrlEncode(whisper) + ":Whisper;";
                 target.MsgStack.Add(new ChatMessage(msg));
@@ -712,6 +706,22 @@ namespace VideoSync
             ////THIS IS THE ONE
             pauseMedia();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chatMsgTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 // END EVENT
     }
 }
