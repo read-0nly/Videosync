@@ -49,6 +49,53 @@ namespace VideoSync
             setColors();
             listView1.Sorting = SortOrder.Ascending;
         }
+        public void pauseMedia()
+        {
+            WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)mediaPlayer.Ctlcontrols;
+            // Check first to be sure the operation is valid. 
+            if (controls.get_isAvailable("pause"))
+            {
+                controls.pause();
+            }
+        }
+        public void stopMedia()
+        {
+            WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)mediaPlayer.Ctlcontrols;
+            // Check first to be sure the operation is valid. 
+            if (controls.get_isAvailable("stop"))
+            {
+                controls.stop();
+            }
+        }
+        public void playMedia()
+        {
+            WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)mediaPlayer.Ctlcontrols;
+            // Check first to be sure the operation is valid. 
+            if (controls.get_isAvailable("play"))
+            {
+                controls.play();
+            }
+        }
+        public void pauseMedia(double tick)
+        {
+            WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)mediaPlayer.Ctlcontrols;
+            // Check first to be sure the operation is valid. 
+            controls.currentPosition = tick;
+            if (controls.get_isAvailable("pause"))
+            {
+                controls.pause();
+            }
+        }
+        public void playMedia(double tick)
+        {
+            WMPLib.IWMPControls3 controls = (WMPLib.IWMPControls3)mediaPlayer.Ctlcontrols;
+            // Check first to be sure the operation is valid. 
+            controls.currentPosition = tick;
+            if (controls.get_isAvailable("play"))
+            {
+                controls.play();
+            }
+        }
 // con
         public void setColors()
         {
@@ -646,6 +693,24 @@ namespace VideoSync
         {
             Console.WriteLine(sender.GetType());
             sendChatMessage(((LVUserItem)listView1.FocusedItem).relatedEndpoint);
+        }
+
+        private void mediaPlayer_CurrentMediaItemAvailable(object sender, AxWMPLib._WMPOCXEvents_CurrentMediaItemAvailableEvent e)
+        {
+        }
+
+        private void mediaPlayer_Buffering(object sender, AxWMPLib._WMPOCXEvents_BufferingEvent e)
+        {
+        }
+
+        private void mediaPlayer_NewStream(object sender, EventArgs e)
+        {
+        }
+
+        private void mediaPlayer_MediaChange(object sender, AxWMPLib._WMPOCXEvents_MediaChangeEvent e)
+        {
+            ////THIS IS THE ONE
+            pauseMedia();
         }
 // END EVENT
     }

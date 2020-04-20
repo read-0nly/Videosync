@@ -141,6 +141,10 @@
             this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
             this.mediaPlayer.Size = new System.Drawing.Size(404, 359);
             this.mediaPlayer.TabIndex = 5;
+            this.mediaPlayer.NewStream += new System.EventHandler(this.mediaPlayer_NewStream);
+            this.mediaPlayer.Buffering += new AxWMPLib._WMPOCXEvents_BufferingEventHandler(this.mediaPlayer_Buffering);
+            this.mediaPlayer.MediaChange += new AxWMPLib._WMPOCXEvents_MediaChangeEventHandler(this.mediaPlayer_MediaChange);
+            this.mediaPlayer.CurrentMediaItemAvailable += new AxWMPLib._WMPOCXEvents_CurrentMediaItemAvailableEventHandler(this.mediaPlayer_CurrentMediaItemAvailable);
             this.mediaPlayer.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
             // listView1
